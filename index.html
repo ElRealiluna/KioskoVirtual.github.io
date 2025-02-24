@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiosko Virtual</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="d-flex flex-column vh-100">
+    <header class="bg-warning py-2 compact-header">
+        <div class="container-fluid">
+            <div class="d-flex justify-content-between align-items-center">
+                <h1 class="h5 text-white mb-0">Kiosko Virtual</h1>
+                <small class="text-white">"Realmente comprometidos con los colaboradores"</small>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow-1 position-relative d-flex align-items-center">
+        <!-- Botones Izquierdos -->
+        <div class="side-buttons left-buttons">
+            <button class="side-button" onclick="navigateToSection('rrhh')" data-bs-toggle="tooltip" data-bs-placement="right" title="Recursos Humanos">
+                <i class="fas fa-users"></i>
+                <span>RRHH</span>
+            </button>
+            <button class="side-button" onclick="navigateToSection('tienda')" data-bs-toggle="tooltip" data-bs-placement="right" title="Tienda Virtual">
+                <i class="fas fa-store"></i>
+                <span>Tienda Virtual</span>
+            </button>
+            <button class="side-button" onclick="navigateToSection('transportes')" data-bs-toggle="tooltip" data-bs-placement="right" title="Liquidación de Transportistas">
+                <i class="fas fa-truck"></i>
+                <span>Transporte</span>
+            </button>
+        </div>
+
+        <!-- Botones Derechos -->
+        <div class="side-buttons right-buttons">
+            <button class="side-button" onclick="window.location.reload()" data-bs-toggle="tooltip" data-bs-placement="left" title="Volver al inicio">
+                <i class="fas fa-home"></i>
+                <span>Inicio</span>
+            </button>
+            <button class="side-button" onclick="navigateToHelp()" data-bs-toggle="tooltip" data-bs-placement="left" title="Centro de ayuda">
+                <i class="fas fa-question-circle"></i>
+                <span>Ayuda</span>
+            </button>
+            <button class="side-button" onclick="navigateToSettings()" data-bs-toggle="tooltip" data-bs-placement="left" title="Ajustes del sistema">
+                <i class="fas fa-cog"></i>
+                <span>Configuración</span>
+            </button>
+        </div>
+
+        <!-- Contenido Central -->
+        <div class="container-fluid px-4">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-10 col-xl-8">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <!-- RRHH Slide -->
+                            <div class="swiper-slide">
+                                <div class="slide-content text-center">
+                                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&h=300&fit=crop" alt="RRHH" class="slide-image mb-3">
+                                    <h2>Recursos Humanos</h2>
+                                    <p>Gestiona tus solicitudes laborales, consulta información importante y mantente conectado con el equipo de RRHH.</p>
+                                    <button class="btn btn-primary btn-lg" onclick="navigateToSection('rrhh')">
+                                        <i class="fas fa-users me-2"></i>Acceder
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Tienda Slide -->
+                            <div class="swiper-slide">
+                                <div class="slide-content text-center">
+                                    <img src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=600&h=300&fit=crop" alt="Tienda" class="slide-image mb-3">
+                                    <h2>Tienda Virtual</h2>
+                                    <p>Descubre nuestra amplia gama de productos y servicios disponibles para ti con beneficios exclusivos.</p>
+                                    <button class="btn btn-success btn-lg" onclick="navigateToSection('tienda')">
+                                        <i class="fas fa-store me-2"></i>Acceder
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Transportes Slide -->
+                            <div class="swiper-slide">
+                                <div class="slide-content text-center">
+                                    <img src="https://images.unsplash.com/photo-1586366775916-bbc926f72d88?w=600&h=300&fit=crop" alt="Transportes" class="slide-image mb-3">
+                                    <h2>Liquidación de Transportistas</h2>
+                                    <p>Sistema integral para la gestión y liquidación de servicios de transporte de manera eficiente.</p>
+                                    <button class="btn btn-warning btn-lg" onclick="navigateToSection('transportes')">
+                                        <i class="fas fa-truck me-2"></i>Acceder
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal RRHH -->
+    <div class="modal fade" id="modalRRHH" tabindex="-1" aria-labelledby="modalRRHHLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="modalRRHHLabel">
+                        <i class="fas fa-users me-2"></i>Recursos Humanos
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <div class="list-group list-group-flush">
+                        <a href="#" class="list-group-item list-group-item-action p-3" onclick="navigateToRRHHSection('documentos')">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-file-alt me-3 text-primary"></i>
+                                <div>
+                                    <h6 class="mb-1">Recepción de Documentos</h6>
+                                    <small class="text-muted">Sube y gestiona tus documentos laborales</small>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action p-3" onclick="navigateToRRHHSection('colilla')">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-receipt me-3 text-success"></i>
+                                <div>
+                                    <h6 class="mb-1">Consulta de Colilla</h6>
+                                    <small class="text-muted">Visualiza e imprime tus colillas de pago</small>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action p-3" onclick="navigateToRRHHSection('vacaciones')">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-umbrella-beach me-3 text-warning"></i>
+                                <div>
+                                    <h6 class="mb-1">Gestión de Vacaciones</h6>
+                                    <small class="text-muted">Solicita y consulta tus períodos vacacionales</small>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action p-3" onclick="navigateToRRHHSection('constancias')">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-certificate me-3 text-info"></i>
+                                <div>
+                                    <h6 class="mb-1">Constancias y Certificados</h6>
+                                    <small class="text-muted">Solicita documentos laborales oficiales</small>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action p-3" onclick="navigateToRRHHSection('permisos')">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-calendar-check me-3 text-danger"></i>
+                                <div>
+                                    <h6 class="mb-1">Solicitud de Permisos</h6>
+                                    <small class="text-muted">Gestiona permisos laborales y ausencias</small>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action p-3" onclick="navigateToRRHHSection('capacitacion')">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-graduation-cap me-3 text-purple"></i>
+                                <div>
+                                    <h6 class="mb-1">Capacitación</h6>
+                                    <small class="text-muted">Accede a cursos y programas de desarrollo</small>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white py-2">
+        <div class="container-fluid text-center">
+            <small>&copy; 2025 Kiosko Virtual. Todos los derechos reservados.</small>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
